@@ -9,9 +9,7 @@ function SearchUsers() {
 
     const searchUsers = async () => {
         try {
-            const response = await API.get(
-                `/users/search?email=${email}`
-            );
+            const response = await API.get(`/users/search?email=${email}`);
             setUsers(response.data);
         } catch (error) {
             console.log(error);
@@ -20,9 +18,7 @@ function SearchUsers() {
 
     const followUser = async (userId) => {
         try {
-            const response = await API.post(
-                `/users/${userId}/follow`
-            );
+            const response = await API.post(`/users/${userId}/follow`);
             setMessage(response.data);
             setTimeout(() => setMessage(""), 3000);
             searchUsers();
@@ -34,9 +30,7 @@ function SearchUsers() {
 
     const unfollowUser = async (userId) => {
         try {
-            const response = await API.delete(
-                `/users/${userId}/unfollow`
-            );
+            const response = await API.delete(`/users/${userId}/unfollow`);
             setMessage(response.data);
             setTimeout(() => setMessage(""), 3000);
             searchUsers();
@@ -62,12 +56,16 @@ function SearchUsers() {
             <button onClick={() => window.location.href = "/profile"}>
                 Back To Profile
             </button>
+            <button onClick={() => window.location.href = "/home"}>
+                Back To Home
+            </button>
 
             <br /><br />
 
             {users.map((user) => (
-                <div key={user.id}>
-                    <h3>{user.email}</h3>
+                <div key={user.id} style={{border: "1px solid #ccc", margin: "10px", padding: "10px"}}>
+                    <h3>{user.username || user.email}</h3>
+                    <p>{user.email}</p>
                     <button onClick={() => followUser(user.id)}>Follow</button>
                     <button onClick={() => unfollowUser(user.id)}>Unfollow</button>
                     <hr />
