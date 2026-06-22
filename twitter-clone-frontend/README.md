@@ -8,14 +8,31 @@ https://twitter-clone-frontend-sand.vercel.app
 https://twitter-clone-backend-production-dd75.up.railway.app
 
 ✨ Features
-User Registration & Login (JWT Authentication)
-Create, Delete Tweets
+User Registration 
+
+& Login
+(JWT Authentication)
+
+
+Create,
+
+Delete Tweets
+
+
 Like & Unlike Tweets
+
+
 Retweet
 Follow & Unfollow Users
+
+
 My Feed (tweets from followed users)
+
+
 Search Users by email
 Upload Profile Image
+
+
 🛠️ Tech Stack
 React 19
 Vite
